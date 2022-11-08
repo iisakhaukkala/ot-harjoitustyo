@@ -1,3 +1,6 @@
-# Otsikko
-###### väliotsikko
-leipätekstiä **markdown**-notaation harjoittelua varten. ~~pikku kakkosen posti~~ en ole aikaisemmin juuri käyttänyt _githubia_
+# Ohjelmistotekniikka, harjoitustyö
+## Tehtävät
+### Viikko 1
+[gitlog.txt](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+
+[komentorivi.txt](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
