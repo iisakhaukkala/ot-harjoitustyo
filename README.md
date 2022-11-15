@@ -1,10 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
-## Tehtävät
-### Viikko 1
-Ensimmäisen viikon tehtävät:
+## Dokumentaatio
 
-[gitlog.txt](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+- [Vaatimusmäärittely](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[komentorivi.txt](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
-epäsykroni muutos
+- [Tuntikirjanpito](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
