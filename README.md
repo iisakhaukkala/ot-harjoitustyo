@@ -1,7 +1,7 @@
 # Ohjelmistotekniikka, harjoitustyö
 ## Dokumentaatio
 
-- [Changelog] (https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+- [Changelog](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
 - [Vaatimusmäärittely](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
