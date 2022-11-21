@@ -6,3 +6,7 @@ htmlcov
 __pycache__
 *.py[cod]
 *$py.class
+
+# data files
+data/register.sqlite
+data/testregister.sqlite
