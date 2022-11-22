@@ -1,3 +1,5 @@
+from repositories.user_repository import create_user, get_users
+
 class UI:
     def __init__(self):
         pass
@@ -5,8 +7,8 @@ class UI:
     def guide(self):
         print("Komennot: ")
         print("0 lopetus")
-        print("1 kirjaudu sisään")
-        print("2 luo käyttäjä")
+        print("1 luo käyttäjä")
+        print("2 tulosta käyttäjät")
 
     def run(self):
         self.guide()
@@ -16,7 +18,10 @@ class UI:
             if command == "0":
                 break
             elif command == "1":
-                print("Työn alla")
+                username = input("Käyttäjätunnus: ")
+                password = input("Salasana: ")
+                create_user(username, password)
             elif command == "2":
-                print("Työn alla")
+                users = get_users()
+                print(users)
             
