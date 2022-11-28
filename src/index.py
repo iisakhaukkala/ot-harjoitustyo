@@ -2,8 +2,8 @@ from ui.ui import UI
 
 
 def main():
-    ui = UI()
-    ui.run()
+    program_ui = UI()
+    program_ui.run()
 
 
 if __name__ == "__main__":
