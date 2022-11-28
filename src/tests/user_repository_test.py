@@ -1,6 +1,6 @@
 import unittest
 from database_connection import get_database_connection
-from repositories.user_repository import create_user, get_users
+from repositories.register_repository import create_user, get_users
 
 
 class TestRegister(unittest.TestCase):
