@@ -11,13 +11,44 @@ class RegisterRepository:
                        username, password, name, email, phone, memberhip, admin])
 
 
-    def get_users(self):
-        users = self._connection.execute("SELECT username FROM Members").fetchall()
-        return users
+    def edit_name(self):
+        pass
+
+
+    def edit_email(self):
+        pass
+
+
+    def edit_phone(self):
+        pass
+
+
+    def make_admin(self):
+        pass
+
+
+    def unmake_admin(self):
+        pass
+
+
+    def get_all(self):
+        return self._connection.execute("SELECT * FROM Members").fetchall()
+        
+
+    def find_by_username(self, username): 
+        return self._connection.execute("SELECT * FROM Members WHERE username = ?", [username]).fetchone()
+        
+
+    def find_by_name(self): # admin
+        pass
+
+
+    def edit_membership(self): # admin
+        pass
 
 
     def delete_all(self):
-        pass
+        self._connection.execute("DELETE FROM Members")
 
     
 register_repository = RegisterRepository(get_database_connection())
