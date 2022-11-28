@@ -6,7 +6,8 @@ def drop_tables(connection):
 
 
 def create_tables(connection):
-    connection.execute("CREATE TABLE Members (username TEXT PRIMARY KEY, password TEXT)")
+    connection.execute(
+        "CREATE TABLE Members (username TEXT PRIMARY KEY, password TEXT)")
 
 
 def initialize_database():

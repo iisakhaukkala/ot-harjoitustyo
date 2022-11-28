@@ -1,5 +1,6 @@
 from repositories.user_repository import create_user, get_users
 
+
 class UI:
     def __init__(self):
         pass
@@ -24,4 +25,3 @@ class UI:
             elif command == "2":
                 users = get_users()
                 print(users)
-            
