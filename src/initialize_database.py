@@ -7,7 +7,14 @@ def drop_tables(connection):
 
 def create_tables(connection):
     connection.execute(
-        "CREATE TABLE Members (username TEXT PRIMARY KEY, password TEXT, name TEXT, email TEXT, phone TEXT, membership DATE, admin BOOLEAN)")
+        '''CREATE TABLE Member (
+        username TEXT PRIMARY KEY,
+        password TEXT,
+        name TEXT,
+        email TEXT,
+        phone TEXT,
+        membership TEXT,
+        admin BOOLEAN)''')
 
 
 def initialize_database():
