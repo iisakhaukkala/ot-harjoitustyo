@@ -4,6 +4,7 @@ from repositories.register_repository import (register_repository as default_reg
 class RegisterService:
     def __init__(self, register_repository = default_register_repository):
         self._register_repository = register_repository
+        self._user = None
 
     
     def create_user(self, username, password):
@@ -21,8 +22,14 @@ class RegisterService:
         user = self._register_repository.find_by_username(username)
         if not user or user[1] != password:
             print("Väärä käyttäjätunnus tai salasana")
-        else: 
-            print("onnistui")
+        else:
+            self._user = user 
+            return True
+
+
+    def logout(self):
+        self._user = None
+
 
     def print_users(self):
         print(self._register_repository.get_all())
