@@ -13,11 +13,11 @@ Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita.
 ### Jäsenet
 
 #### Ennen kirjautumista jäsen:
-- voi luoda käyttäjätunnuksen
-  - käyttäjätunnuksen tulee olla uniikki
-  - salasanan täytyy olla vähintään 8 merkkiä
-- voi kirjautua antamalla käyttäjätunnuksen ja salasanan
-  - sovellus ilmoittaa, mikäli ne menivät väärin
+- voi luoda käyttäjätunnuksen (tehty)
+  - käyttäjätunnuksen tulee olla uniikki ja vähintään 3 merkkiä pitkä (tehty)
+  - salasanan täytyy olla vähintään 8 merkkiä (tehty)
+- voi kirjautua antamalla käyttäjätunnuksen ja salasanan (tehty)
+  - sovellus ilmoittaa, mikäli ne menivät väärin (tehty)
 
 #### Kirjautumisen jälkeen jäsen:
 - voi muokata omia tietojaan
@@ -31,8 +31,8 @@ Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita.
 Järjestötoimijan roolin saa sovelluksen ylläpitäjältä
 
 #### Ennen kirjautumista järjestötoimija:
-- voi kirjautua antamalla käyttäjätunnuksen ja salasanan
-  - sovellus ilmoittaa, mikäli ne menevät väärin
+- voi kirjautua antamalla käyttäjätunnuksen ja salasanan (tehty)
+  - sovellus ilmoittaa, mikäli ne menevät väärin (tehty)
 
 #### Kirjautumisen jälkeen järjestötoimija:
 - voi tarkastella voimassa olevia ja voimassa olemattomia jäsenyyksiä
