@@ -62,5 +62,7 @@ class UI:
                         break
                     try:
                         self._register_service.login(username, password)
+                        print("Sisäänkirjautuminen onnistui!")
+                        break
                     except InvalidCreditentialsError:
                         print("Käyttäjätunnus ja salasana eivät täsmää")

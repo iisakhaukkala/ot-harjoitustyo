@@ -5,8 +5,14 @@ class RegisterRepository:
     def __init__(self, connection):
         self._connection = connection
 
-    def create_user( # pylint: disable=too-many-arguments
-        self, username=str, password=str, name=str, email=str, phone=str, memberhip=str, admin=int):
+    def create_user(  # pylint: disable=too-many-arguments
+            self, username=str,
+            password=str,
+            name=str,
+            email=str,
+            phone=str,
+            memberhip=str,
+            admin=int):
         self._connection.execute(
             '''INSERT INTO Members
             (username, password, name, email, phone, membership, admin)
@@ -38,23 +44,28 @@ class RegisterRepository:
             "UPDATE Members SET admin = 0 WHERE username = ?", [username])
 
     def get_all(self):
-        return self._connection.execute("SELECT * FROM Members").fetchall()
+        return self._connection.execute(
+            "SELECT * FROM Members").fetchall()
 
     def get_all_members(self):
-        return self._connection.execute("SELECT * FROM Members WHERE membership != None").fetchall()
+        return self._connection.execute(
+            "SELECT * FROM Members WHERE membership IS NOT NULL").fetchall()
 
     def get_all_non_members(self):
-        return self._connection.execute("SELECT * FROM Members WHERE membership = None").fetchall()
+        return self._connection.execute(
+            "SELECT * FROM Members WHERE membership IS NULL").fetchall()
 
     def find_by_username(self, username):
-        return self._connection.execute('''SELECT * FROM Members
-                                        WHERE username = ?''', [username]).fetchone()
+        return self._connection.execute(
+            "SELECT * FROM Members WHERE username = ?", [username]).fetchone()
 
     def find_by_name(self, name):
-        return self._connection.execute("SELECT * FROM Members WHERE name = ?", [name]).fetchone()
+        return self._connection.execute(
+            "SELECT * FROM Members WHERE name = ?", [name]).fetchone()
 
-    def delete_user(self):
-        pass
+    def delete_user(self, username):
+        self._connection.execute(
+            "DELETE FROM Members WHERE username = ?", [username])
 
     def delete_all(self):
         self._connection.execute("DELETE FROM Members")
