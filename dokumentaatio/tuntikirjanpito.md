@@ -8,4 +8,6 @@
 |28.11.|4   |luokkien luominen, tietokantatoimintojen sekä sovelluslogiikan koodaus|
 |29.11.|5   |koodaus kaikilla kerroksilla, tietokantatoimintojen testaus, luokka/pakkauskaavio|
 |2.12. |1   |tietokantatoimintojen testit|
-|yht.  |24  ||
+|5.12. |5   |sovellustason koodaus ja testit, käyttöliittymän koodaus|
+|6.12. |1   |käyttöliittymän koodaus|
+|yht.  |30  ||
