@@ -6,7 +6,7 @@ Kyseessä on jäsenrekisterisovellus. Sovelluksen tarkoituksena on säilyttää 
 
 ## Käyttäjät
 
-Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita.
+Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita (admineita).
 
 ## Toiminnallisuudet
 
@@ -20,26 +20,28 @@ Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita.
   - sovellus ilmoittaa, mikäli ne menivät väärin (tehty)
 
 #### Kirjautumisen jälkeen jäsen:
-- voi muokata omia tietojaan
-  - nimi, sähköpostiosoite, puhelinnumero
-- näkee, mihin saakka hänen jäsenyytensä on voimassa
+- voi muokata omia tietojaan (tehty)
+  - nimi, sähköpostiosoite, puhelinnumero (tehty)
+- näkee, mihin saakka hänen jäsenyytensä on voimassa 
 - näkee, miten jäsenyyden voi uusia
 - näkee jäsenyysyhteyshenkilön yhteystiedot
+- voi liittyä järjestötoimijaksi (adminiksi) (tehty)
 
-### Järjestötoimijat
-
-Järjestötoimijan roolin saa sovelluksen ylläpitäjältä
+### Järjestötoimijat (adminit)
 
 #### Ennen kirjautumista järjestötoimija:
 - voi kirjautua antamalla käyttäjätunnuksen ja salasanan (tehty)
   - sovellus ilmoittaa, mikäli ne menevät väärin (tehty)
 
 #### Kirjautumisen jälkeen järjestötoimija:
+- voi muokata omia tietojaan (tehty)
+  - nimi, sähköpostiosoite, puhelinnumero (tehty)
 - voi tarkastella voimassa olevia ja voimassa olemattomia jäsenyyksiä
 - voi muokata jäsenten jäsenyystietoja
 - voi hakea jäseniä nimellä tai käyttäjätunnuksella
 - näkee, kuinka monta jäsenyyttä on voimassa
 - voi muokata jäsenille näkyviä uusimisohjeita sekä jäsenyysyhteyshenkilön yhteystietoja
+- voi palautua takaisin tavalliseksi käyttäjäksi (tehty)
 
 ## Jatkokehitysideoita
 Sovellukseen voi lisätä seuraavia toiminnallisuuksia:
