@@ -38,8 +38,7 @@ Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita (a
   - nimi, sähköpostiosoite, puhelinnumero (tehty)
 - voi tarkastella voimassa olevia ja voimassa olemattomia jäsenyyksiä
 - voi muokata jäsenten jäsenyystietoja
-- voi hakea jäseniä nimellä tai käyttäjätunnuksella
-- näkee, kuinka monta jäsenyyttä on voimassa
+- voi hakea käyttäjiä nimellä tai käyttäjätunnuksella
 - voi muokata jäsenille näkyviä uusimisohjeita sekä jäsenyysyhteyshenkilön yhteystietoja
 - voi palautua takaisin tavalliseksi käyttäjäksi (tehty)
 
