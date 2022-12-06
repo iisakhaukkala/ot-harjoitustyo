@@ -76,21 +76,21 @@ class TestRegister(unittest.TestCase):
 
     def test_get_all_members(self):
         register_repository.create_user(
-            "matti", "meikalainen", None, None, None, None, 0)
+            "matti", "meikalainen", "Matti Meikalainen", None, None, None, 0)
         register_repository.create_user(
             "erkki", "esimerkki", None, None, None, None, 0)
         register_repository.edit_membership("01.01.2023", "matti")
         self.assertEqual(register_repository.get_all_members(), [
-                         ('matti', 'meikalainen', None, None, None, '01.01.2023', 0)])
+                         ('matti', 'Matti Meikalainen', '01.01.2023')])
 
     def test_get_all_non_members(self):
         register_repository.create_user(
             "matti", "meikalainen", None, None, None, None, 0)
         register_repository.create_user(
-            "erkki", "esimerkki", None, None, None, None, 0)
+            "erkki", "esimerkki", "Erkki Esimerkki", None, None, None, 0)
         register_repository.edit_membership("01.01.2023", "matti")
         self.assertEqual(register_repository.get_all_non_members(), [
-                         ('erkki', 'esimerkki', None, None, None, None, 0)])
+                         ('erkki', 'Erkki Esimerkki')])
 
     def test_delete_user(self):
         register_repository.create_user(

@@ -49,11 +49,12 @@ class RegisterRepository:
 
     def get_all_members(self):
         return self._connection.execute(
-            "SELECT * FROM Members WHERE membership IS NOT NULL").fetchall()
+            '''SELECT username, name, membership FROM Members
+            WHERE membership IS NOT NULL''').fetchall()
 
     def get_all_non_members(self):
         return self._connection.execute(
-            "SELECT * FROM Members WHERE membership IS NULL").fetchall()
+            "SELECT username, name FROM Members WHERE membership IS NULL").fetchall()
 
     def find_by_username(self, username):
         return self._connection.execute(

@@ -17,6 +17,10 @@ class InvalidCreditentialsError(Exception):
     pass
 
 
+class UserNotFoundError(Exception):
+    pass
+
+
 class RegisterService:
     def __init__(self, register_repo):
         self._register_repository = register_repo
@@ -44,28 +48,41 @@ class RegisterService:
             raise InvalidCreditentialsError
 
         self._user = user
+
         return user
 
     def logout(self):
         self._user = None
 
-    def get_user_info(self):
-        pass
+    # def get_user_info(self):
+    #    return (self._user[0], self._user[2], self._user[3], self._user[4], self._user[5])
 
-    def print_users(self):
-        print(self._register_repository.get_all())
+    def get_users(self):
+        return self._register_repository.get_all()
 
-    def edit_name(self):
-        pass
+    def update_user(self):
+        user = self._user[0]
+        self._user = self._register_repository.find_by_username(user)
 
-    def edit_email(self):
-        pass
+    def edit_name(self, name):
+        self._register_repository.edit_name(name, self._user[0])
+        self.update_user()
 
-    def edit_phone(self):
-        pass
+    def edit_email(self, email):
+        self._register_repository.edit_email(email, self._user[0])
+        self.update_user()
 
-    def edit_membership(self):
-        pass
+    def edit_phone(self, phone):
+        self._register_repository.edit_phone(phone, self._user[0])
+        self.update_user()
+
+    def edit_membership(self, membership, username):
+        user = self._register_repository.find_by_username(username)
+
+        if not user:
+            raise UserNotFoundError
+
+        self._register_repository.edit_membership(membership, username)
 
     def print_info(self):
         pass
@@ -73,23 +90,41 @@ class RegisterService:
     def edit_info(self):
         pass
 
-    def find_by_username(self):
-        pass
+    def find_by_username(self, username):
+        user = self._register_repository.find_by_username(username)
 
-    def find_by_name(self):
-        pass
+        if not user:
+            raise UserNotFoundError
+
+        return user
+
+    def find_by_name(self, name):
+        user = self._register_repository.find_by_name(name)
+
+        if not user:
+            raise UserNotFoundError
+
+        return user
 
     def get_all_members(self):
-        pass
+        return self._register_repository.get_all_members()
 
     def get_all_non_members(self):
-        pass
+        return self._register_repository.get_all_non_members()
 
-    def delete_user(self):
-        pass
+    def delete_user(self, username):
+        self._register_repository.delete_user(username)
 
     def delete_all(self):
-        pass
+        self._register_repository.delete_all()
+
+    def make_admin(self):
+        self._register_repository.make_admin(self._user[0])
+        self.update_user()
+
+    def unmake_admin(self):
+        self._register_repository.unmake_admin(self._user[0])
+        self.update_user()
 
 
 register_service = RegisterService(register_repository)
