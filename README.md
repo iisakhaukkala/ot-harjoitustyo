@@ -1,4 +1,7 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Jäsenrekisterisovellus
+
+Sovellus on harjoitustyö, joka on tehty osana Helsingin yliopiston kurssia Ohjelmistotekniikka. Sovelluksen tarkoituksena on helpottaa järjestön tai muun vastaavan toimijan jäsenrekisterin ylläpitoa.
+
 ## Dokumentaatio
 
 - [Changelog](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
