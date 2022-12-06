@@ -2,6 +2,10 @@
 
 Sovellus on harjoitustyö, joka on tehty osana Helsingin yliopiston kurssia Ohjelmistotekniikka. Sovelluksen tarkoituksena on helpottaa järjestön tai muun vastaavan toimijan jäsenrekisterin ylläpitoa.
 
+## Releaset
+
+- [viikko5](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Dokumentaatio
 
 - [Changelog](https://github.com/iisakhaukkala/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
@@ -32,13 +36,19 @@ poetry run invoke build
 poetry run invoke start
 ```
 
-## Testikattavuusraportti ja koodin laatu
+## Muut komentorivikomennot
+
+### Testikattavuusraportti
 
 Testikattavuusraportin voi koostaa komennolla:
 
 ```bash
 poetry run invoke coverage-report
 ```
+
+Testikattavuusraportti koostetaan _htmlcov_-hakemistoon
+
+### Pylint
 
 Pylint-raportin voi koostaa komennolla: 
 
