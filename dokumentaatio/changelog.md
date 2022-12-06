@@ -11,4 +11,13 @@
 - Käyttäjä voi kirjautua sisään (kirjautuneena ei voi toki tehdä vielä mitään järkevää)
 - RegisterRepository -luokalla on enemmän toimintoja, osa niistä testattu
 - RegisterService -luokalla on enemmän toimintoja, ei testattu
-- Käyttöliittymä toimiii tarkoituksesti nykyisillä toiminnoilla
+- Käyttöliittymä toimiii tarkoituksenmukaisesti nykyisillä toiminnoilla
+
+## Viikko 5
+- RegisterRepository -luokan toiminnot valmiit, luokan testikattavuus 100 %
+- RegisterService -luokalla suurin osa toiminnoista, luokan testikattavuus 54 %
+- Käyttöliittymä toimii
+- Käyttäjä voi kirjautuneena tarkastella ja muokata omia tietojaan
+- Käyttäjä voi liittyä adminiksi
+- Admin voi tehdä samat asiat kuin tavallinen käyttäjä
+- Admin voi poistaa itseltään admin-oikeudet
