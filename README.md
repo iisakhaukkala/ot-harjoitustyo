@@ -28,3 +28,17 @@ poetry run invoke build
 ```bash
 poetry run invoke start
 ```
+
+## Testikattavuusraportti ja koodin laatu
+
+Testikattavuusraportin voi koostaa komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Pylint-raportin voi koostaa komennolla: 
+
+```bash
+poetry run invoke lint
+```
