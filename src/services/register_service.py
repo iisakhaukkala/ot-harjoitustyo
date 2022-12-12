@@ -89,12 +89,6 @@ class RegisterService:
         self._register_repository.edit_membership(membership, username)
         self.update_user()
 
-    def print_info(self):
-        pass
-
-    def edit_info(self):
-        pass
-
     def find_info_by_username(self, username):
         user = self._register_repository.find_info_by_username(username)
 
@@ -109,7 +103,7 @@ class RegisterService:
         if not user:
             raise UserNotFoundError
 
-        if user[0] == self.user[0]:
+        if user[0] == self._user[0]:
             raise DeletingYourselfError
 
         return user

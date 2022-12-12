@@ -10,3 +10,6 @@ except FileNotFoundError:
 
 DATABASE_FILENAME = os.getenv("DATABASE_FILENAME") or "register.sqlite"
 DATABASE_FILE_PATH = os.path.join(dirname, "..", "data", DATABASE_FILENAME)
+
+INFO_FILENAME = os.getenv("INFO_FILENAME") or "info.txt"
+INFO_FILE_PATH = os.path.join(dirname, "..", "data", INFO_FILENAME)

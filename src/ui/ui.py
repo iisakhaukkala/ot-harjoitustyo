@@ -1,9 +1,11 @@
 from services.register_service import register_service, TooShortUsernameError, TooShortPasswordError, UsernameExistsError, InvalidCreditentialsError, UserNotFoundError, DeletingYourselfError
+from services.info_service import info_service
 
 
 class UI:
-    def __init__(self, register_service=register_service):
+    def __init__(self, register_service=register_service, info_service=info_service):
         self._register_service = register_service
+        self._info_service = info_service
 
     def guide(self):
         print("")
@@ -162,7 +164,7 @@ class UI:
             elif command == "1":
                 self.edit_info_view()
             elif command == "2":
-                print("toimintoa ei vielä ole")  # tarkastele uusimisohjeita
+                print(self._info_service.return_info())
             elif command == "3":
                 while True:
                     print("")
@@ -189,9 +191,16 @@ class UI:
             elif command == "1":
                 self.edit_info_view()
             elif command == "2":
-                print("toimintoa ei vielä ole")  # tarkastele uusimisohjeita
+                print(self._info_service.return_info())
             elif command == "3":
-                print("toimitoa ei vielä ole")  # muokkaa uusimisohjeita
+                print("Lopeta syöttämällä 0")
+                textlist = []
+                while True:
+                    text = input("")
+                    if text == "0":
+                        break
+                    textlist.append(text)
+                self._info_service.edit_info(textlist)
             elif command == "4":
                 users = register_service.get_all_members()
                 print(f"Jäseniä on {len(users)} kappaletta")
@@ -199,7 +208,8 @@ class UI:
                     print(f"{users[i][0]}, nimi: {users[i][1]}")
             elif command == "5":
                 nonusers = register_service.get_all_non_members()
-                print(f"Käyttäjiä, jotka ei ole jäseniä on {len(nonusers)} kappaletta")
+                print(
+                    f"Käyttäjiä, jotka ei ole jäseniä on {len(nonusers)} kappaletta")
                 print("Käyttäjät, jotka eivät ole jäseniä:")
                 for i in range(len(nonusers)):
                     print(f"{nonusers[i][0]}, nimi: {nonusers[i][1]}")
@@ -208,9 +218,11 @@ class UI:
                 try:
                     user = register_service.find_info_by_username(username)
                     if user[4] == None:
-                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
-                    else: 
-                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
+                        print(
+                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
+                    else:
+                        print(
+                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
                 except UserNotFoundError:
                     print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
             elif command == "7":
@@ -218,14 +230,18 @@ class UI:
                 try:
                     user = register_service.find_info_by_name(name)
                     if user[4] == None:
-                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
-                    else: 
-                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
+                        print(
+                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
+                    else:
+                        print(
+                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
                 except UserNotFoundError:
                     print(f"Nimellä {name} ei löytynyt käyttäjää")
             elif command == "8":
-                username = input("Kenen jäsenyyttä haluat muokata (käyttäjätunnus)?: ")
-                membership = input(f"Mihin saakka käyttäjän {username} on voimassa?: ")
+                username = input(
+                    "Kenen jäsenyyttä haluat muokata (käyttäjätunnus)?: ")
+                membership = input(
+                    f"Mihin saakka käyttäjän {username} on voimassa?: ")
                 try:
                     register_service.edit_membership(membership, username)
                     print("Jäsenyyden muokkaus onnistui!")
@@ -233,15 +249,17 @@ class UI:
                     print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
             elif command == "9":
                 username = input("Käyttäjätunnus: ")
-                sure = input(f"Haluatko varmasti poistaa käyttäjän {username}? y/n")
+                sure = input(
+                    f"Haluatko varmasti poistaa käyttäjän {username}? y/n")
                 if sure == "n" or sure == "N":
                     break
-                elif sure =="y" or sure == "Y":
+                elif sure == "y" or sure == "Y":
                     try:
                         register_service.delete_user(username)
                         print(f"Käyttäjä {username} poistettu")
                     except UserNotFoundError:
-                        print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
+                        print(
+                            f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
                     except DeletingYourselfError:
                         print(f"Et voi poistaa itseäsi")
             elif command == "10":
