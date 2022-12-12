@@ -21,6 +21,10 @@ class UserNotFoundError(Exception):
     pass
 
 
+class DeletingYourselfError(Exception):
+    pass
+
+
 class RegisterService:
     def __init__(self, register_repo):
         self._register_repository = register_repo
@@ -83,6 +87,7 @@ class RegisterService:
             raise UserNotFoundError
 
         self._register_repository.edit_membership(membership, username)
+        self.update_user()
 
     def print_info(self):
         pass
@@ -90,19 +95,22 @@ class RegisterService:
     def edit_info(self):
         pass
 
-    def find_by_username(self, username):
-        user = self._register_repository.find_by_username(username)
+    def find_info_by_username(self, username):
+        user = self._register_repository.find_info_by_username(username)
 
         if not user:
             raise UserNotFoundError
 
         return user
 
-    def find_by_name(self, name):
+    def find_info_by_name(self, name):
         user = self._register_repository.find_by_name(name)
 
         if not user:
             raise UserNotFoundError
+
+        if user[0] == self.user[0]:
+            raise DeletingYourselfError
 
         return user
 
@@ -113,6 +121,11 @@ class RegisterService:
         return self._register_repository.get_all_non_members()
 
     def delete_user(self, username):
+        user = self._register_repository.find_by_username(username)
+
+        if not user:
+            raise UserNotFoundError
+
         self._register_repository.delete_user(username)
 
     def delete_all(self):

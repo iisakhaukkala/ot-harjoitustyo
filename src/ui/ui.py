@@ -1,4 +1,4 @@
-from services.register_service import register_service, TooShortUsernameError, TooShortPasswordError, UsernameExistsError, InvalidCreditentialsError
+from services.register_service import register_service, TooShortUsernameError, TooShortPasswordError, UsernameExistsError, InvalidCreditentialsError, UserNotFoundError, DeletingYourselfError
 
 
 class UI:
@@ -193,27 +193,63 @@ class UI:
             elif command == "3":
                 print("toimitoa ei vielä ole")  # muokkaa uusimisohjeita
             elif command == "4":
-                # tulosta jäsenet ja niiden määrä
-                print("toimitoa ei vielä ole")
+                users = register_service.get_all_members()
+                print(f"Jäseniä on {len(users)} kappaletta")
+                for i in range(len(users)):
+                    print(f"{users[i][0]}, nimi: {users[i][1]}")
             elif command == "5":
-                # tulosta ei-jäsenet (ja niiden määrä)
-                print("toimitoa ei vielä ole")
+                nonusers = register_service.get_all_non_members()
+                print(f"Käyttäjiä, jotka ei ole jäseniä on {len(nonusers)} kappaletta")
+                print("Käyttäjät, jotka eivät ole jäseniä:")
+                for i in range(len(nonusers)):
+                    print(f"{nonusers[i][0]}, nimi: {nonusers[i][1]}")
             elif command == "6":
-                # etsi käyttäjää käyttäjänimellä
-                print("toimitoa ei vielä ole")
+                username = input("Käyttäjätunnus: ")
+                try:
+                    user = register_service.find_info_by_username(username)
+                    if user[4] == None:
+                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
+                    else: 
+                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
+                except UserNotFoundError:
+                    print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
             elif command == "7":
-                print("toimitoa ei vielä ole")  # etsi käyttäjää nimellä
+                name = input("Nimi: ")
+                try:
+                    user = register_service.find_info_by_name(name)
+                    if user[4] == None:
+                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
+                    else: 
+                        print(f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
+                except UserNotFoundError:
+                    print(f"Nimellä {name} ei löytynyt käyttäjää")
             elif command == "8":
-                print("toimitoa ei vielä ole")  # muokkaa jäsenyyksiä
+                username = input("Kenen jäsenyyttä haluat muokata (käyttäjätunnus)?: ")
+                membership = input(f"Mihin saakka käyttäjän {username} on voimassa?: ")
+                try:
+                    register_service.edit_membership(membership, username)
+                    print("Jäsenyyden muokkaus onnistui!")
+                except UserNotFoundError:
+                    print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
             elif command == "9":
-                print("toimitoa ei vielä ole")  # poista käyttäjä
+                username = input("Käyttäjätunnus: ")
+                sure = input(f"Haluatko varmasti poistaa käyttäjän {username}? y/n")
+                if sure == "n" or sure == "N":
+                    break
+                elif sure =="y" or sure == "Y":
+                    try:
+                        register_service.delete_user(username)
+                        print(f"Käyttäjä {username} poistettu")
+                    except UserNotFoundError:
+                        print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
+                    except DeletingYourselfError:
+                        print(f"Et voi poistaa itseäsi")
             elif command == "10":
                 while True:
                     sure = input("Oletko varma? y/n: ")
                     if sure == "n" or sure == "N":
                         break
                     elif sure == "y" or sure == "Y":
-                        print("lol")
                         self._register_service.unmake_admin()
                         print("")
                         print(

@@ -60,9 +60,13 @@ class RegisterRepository:
         return self._connection.execute(
             "SELECT * FROM Members WHERE username = ?", [username]).fetchone()
 
-    def find_by_name(self, name):
+    def find_info_by_username(self, username):
         return self._connection.execute(
-            "SELECT * FROM Members WHERE name = ?", [name]).fetchone()
+            "SELECT username, name, email, phone, membership FROM Members WHERE username = ?", [username]).fetchone()
+
+    def find_info_by_name(self, name):
+        return self._connection.execute(
+            "SELECT username, name, email, phone, membership FROM Members WHERE name = ?", [name]).fetchone()
 
     def delete_user(self, username):
         self._connection.execute(
