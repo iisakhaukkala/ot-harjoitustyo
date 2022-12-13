@@ -10,3 +10,5 @@ __pycache__
 # data files
 data/register.sqlite
 data/testregister.sqlite
+data/info.txt
+data/testinfo.txt
