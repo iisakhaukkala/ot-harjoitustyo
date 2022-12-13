@@ -98,13 +98,10 @@ class RegisterService:
         return user
 
     def find_info_by_name(self, name):
-        user = self._register_repository.find_by_name(name)
+        user = self._register_repository.find_info_by_name(name)
 
         if not user:
             raise UserNotFoundError
-
-        if user[0] == self._user[0]:
-            raise DeletingYourselfError
 
         return user
 
@@ -119,6 +116,9 @@ class RegisterService:
 
         if not user:
             raise UserNotFoundError
+
+        if user[0] == self._user[0]:
+            raise DeletingYourselfError
 
         self._register_repository.delete_user(username)
 

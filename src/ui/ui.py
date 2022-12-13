@@ -13,16 +13,16 @@ class UI:
         print("0 lopetus")
         print("1 luo käyttäjä")
         print("2 kirjaudu sisään")
-        print("3 tulosta kaikki")
         print("")
 
     def user_guide(self):
         print("")
-        print(f"Kirjautuneena käyttäjänä {register_service._user[0]}")
-        if register_service._user[5] == None:
+        print(f"Kirjautuneena käyttäjänä {self._register_service._user[0]}")
+        if self._register_service._user[5] == None:
             print("Jäsenyytesi ei ole voimassa")
         else:
-            print(f"Jäsenyytesi voimassa {register_service._user[5]} asti")
+            print(
+                f"Jäsenyytesi voimassa {self._register_service._user[5]} asti")
         print("")
         print("Komennot:")
         print("0 kirjaudu ulos")
@@ -43,11 +43,12 @@ class UI:
 
     def admin_guide(self):
         print("")
-        print(f"Kirjautuneena käyttäjänä {register_service._user[0]}")
-        if register_service._user[5] == None:
+        print(f"Kirjautuneena käyttäjänä {self._register_service._user[0]}")
+        if self._register_service._user[5] == None:
             print("Jäsenyytesi ei ole voimassa")
         else:
-            print(f"Jäsenyytesi voimassa {register_service._user[5]} asti")
+            print(
+                f"Jäsenyytesi voimassa {self.__register_service._user[5]} asti")
         print("Olet admin")
         print("")
         print("Komennot:")
@@ -131,10 +132,16 @@ class UI:
                 print("Käyttäjätunnus ja salasana eivät täsmää")
 
     def edit_info_view(self):
+        self.edit_info_guide()
         while True:
-            self.edit_info_guide()
-            command = input("Komento: ")
-            if command == "0":
+            command = input("Komento (komennolla k näet komennot): ")
+            if command == "k" or command == "K":
+                self.edit_info_guide()
+            elif command == "0":
+                if self._register_service._user[6] == 0:
+                    self.user_guide()
+                elif self._register_service._user[6] == 1:
+                    self.admin_guide()
                 break
             elif command == "1":
                 self.user_info(register_service._user)
@@ -152,137 +159,172 @@ class UI:
                 print("Puhelinnumeron muokkaus onnistui!")
 
     def user_view(self):
+        self.user_guide()
         while True:
             if register_service._user[6] == 1:
                 register_service.logout()
+                self.guide()
                 break
-            self.user_guide()
-            command = input("Komento: ")
-            if command == "0":
+            command = input("Komento (komennolla k näet komennot): ")
+            if command == "k" or command == "K":
+                self.user_guide()
+            elif command == "0":
                 register_service.logout()
+                self.guide()
                 break
             elif command == "1":
                 self.edit_info_view()
             elif command == "2":
                 print(self._info_service.return_info())
             elif command == "3":
-                while True:
-                    print("")
-                    sure = input("Oletko varma? y/n: ")
-                    if sure == "n" or sure == "N":
-                        break
-                    elif sure == "y" or sure == "Y":
-                        self._register_service.make_admin()
-                        print("")
-                        print(
-                            "Olet nyt admin, kirjaudu uudelleen saadaksesi admin-toiminnot käyttöön")
-                        break
+                self.make_admin()
+
+    def make_admin(self):
+        while True:
+            print("")
+            sure = input("Oletko varma? y/n: ")
+            if sure == "n" or sure == "N":
+                break
+            elif sure == "y" or sure == "Y":
+                self._register_service.make_admin()
+                print(
+                    "Olet nyt admin, kirjaudu uudelleen saadaksesi admin-toiminnot käyttöön")
+                break
 
     def admin_view(self):
+        self.admin_guide()
         while True:
             if register_service._user[6] == 0:
                 register_service.logout()
+                self.guide()
                 break
-            self.admin_guide()
-            command = input("Komento: ")
-            if command == "0":
+            command = input("Komento (komennolla k näet komennot): ")
+            if command == "k" or command == "K":
+                self.admin_guide()
+            elif command == "0":
                 register_service.logout()
+                self.guide()
                 break
             elif command == "1":
                 self.edit_info_view()
             elif command == "2":
                 print(self._info_service.return_info())
             elif command == "3":
-                print("Lopeta syöttämällä 0")
-                textlist = []
-                while True:
-                    text = input("")
-                    if text == "0":
-                        break
-                    textlist.append(text)
-                self._info_service.edit_info(textlist)
+                self.edit_instructions()
             elif command == "4":
-                users = register_service.get_all_members()
-                print(f"Jäseniä on {len(users)} kappaletta")
-                for i in range(len(users)):
-                    print(f"{users[i][0]}, nimi: {users[i][1]}")
+                self.get_all_members()
             elif command == "5":
-                nonusers = register_service.get_all_non_members()
-                print(
-                    f"Käyttäjiä, jotka ei ole jäseniä on {len(nonusers)} kappaletta")
-                print("Käyttäjät, jotka eivät ole jäseniä:")
-                for i in range(len(nonusers)):
-                    print(f"{nonusers[i][0]}, nimi: {nonusers[i][1]}")
+                self.get_all_non_members()
             elif command == "6":
-                username = input("Käyttäjätunnus: ")
-                try:
-                    user = register_service.find_info_by_username(username)
-                    if user[4] == None:
-                        print(
-                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
-                    else:
-                        print(
-                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
-                except UserNotFoundError:
-                    print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
+                self.find_info_by_username()
             elif command == "7":
-                name = input("Nimi: ")
-                try:
-                    user = register_service.find_info_by_name(name)
-                    if user[4] == None:
-                        print(
-                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
-                    else:
-                        print(
-                            f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
-                except UserNotFoundError:
-                    print(f"Nimellä {name} ei löytynyt käyttäjää")
+                self.find_info_by_name()
             elif command == "8":
-                username = input(
-                    "Kenen jäsenyyttä haluat muokata (käyttäjätunnus)?: ")
-                membership = input(
-                    f"Mihin saakka käyttäjän {username} on voimassa?: ")
+                self.edit_membership()
+            elif command == "9":
+                self.delete_user()
+            elif command == "10":
+                self.unmake_admin()
+
+    def edit_instructions(self):
+        print("Lopeta syöttämällä 0")
+        textlist = []
+        while True:
+            text = input("")
+            if text == "0":
+                break
+            textlist.append(text)
+        self._info_service.edit_info(textlist)
+
+    def get_all_members(self):
+        members = self._register_service.get_all_members()
+        print(f"Jäseniä on {len(members)}")
+        for i in range(len(members)):
+            print(f"{members[i][0]}, nimi: {members[i][1]}")
+
+    def get_all_non_members(self):
+        nonmembers = self._register_service.get_all_non_members()
+        print(
+            f"Käyttäjiä, jotka ei ole jäseniä on {len(nonmembers)}")
+        print("Käyttäjät, jotka eivät ole jäseniä:")
+        for i in range(len(nonmembers)):
+            print(f"{nonmembers[i][0]}, nimi: {nonmembers[i][1]}")
+
+    def find_info_by_username(self):
+        username = input("Käyttäjätunnus: ")
+        try:
+            user = self._register_service.find_info_by_username(username)
+            if user[4] == None:
+                print(
+                    f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
+            else:
+                print(
+                    f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
+        except UserNotFoundError:
+            print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
+
+    def find_info_by_name(self):
+        name = input("Nimi: ")
+        try:
+            user = self._register_service.find_info_by_name(name)
+            if user[4] == None:
+                print(
+                    f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys ei voimassa")
+            else:
+                print(
+                    f"Käyttäjä {user[0]}, nimi {user[1]}, sähköposti {user[2]}, puhelin {user[3]}, jäsenyys voimassa {user[4]} asti")
+        except UserNotFoundError:
+            print(f"Nimellä {name} ei löytynyt käyttäjää")
+
+    def edit_membership(self):
+        username = input(
+            "Kenen jäsenyyttä haluat muokata (käyttäjätunnus)?: ")
+        membership = input(
+            f"Mihin saakka käyttäjän {username} on voimassa?: ")
+        try:
+            self._register_service.edit_membership(membership, username)
+            print("Jäsenyyden muokkaus onnistui!")
+        except UserNotFoundError:
+            print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
+
+    def delete_user(self):
+        username = input("Käyttäjätunnus: ")
+        while True:
+            sure = input(
+                f"Haluatko varmasti poistaa käyttäjän {username}? y/n: ")
+            if sure == "n" or sure == "N":
+                return
+            elif sure == "y" or sure == "Y":
                 try:
-                    register_service.edit_membership(membership, username)
-                    print("Jäsenyyden muokkaus onnistui!")
+                    self._register_service.delete_user(username)
+                    print(f"Käyttäjä {username} poistettu")
+                    return
                 except UserNotFoundError:
                     print(f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
-            elif command == "9":
-                username = input("Käyttäjätunnus: ")
-                sure = input(
-                    f"Haluatko varmasti poistaa käyttäjän {username}? y/n")
-                if sure == "n" or sure == "N":
-                    break
-                elif sure == "y" or sure == "Y":
-                    try:
-                        register_service.delete_user(username)
-                        print(f"Käyttäjä {username} poistettu")
-                    except UserNotFoundError:
-                        print(
-                            f"Käyttäjänimellä {username} ei löytynyt käyttäjää")
-                    except DeletingYourselfError:
-                        print(f"Et voi poistaa itseäsi")
-            elif command == "10":
-                while True:
-                    sure = input("Oletko varma? y/n: ")
-                    if sure == "n" or sure == "N":
-                        break
-                    elif sure == "y" or sure == "Y":
-                        self._register_service.unmake_admin()
-                        print("")
-                        print(
-                            "Et ole enää admin")
-                        break
+                    return
+                except DeletingYourselfError:
+                    print("Et voi poistaa itseäsi")
+                    return
+
+    def unmake_admin(self):
+        while True:
+            sure = input("Oletko varma? y/n: ")
+            if sure == "n" or sure == "N":
+                break
+            elif sure == "y" or sure == "Y":
+                self._register_service.unmake_admin()
+                print("Et ole enää admin")
+                break
 
     def run(self):
+        self.guide()
         while True:
-            self.guide()
-            command = input("Komento: ")
-            if command == "0":
+            command = input("Komento (komennolla k näet komennot): ")
+            if command == "k" or command == "K":
+                self.guide()
+            elif command == "0":
                 break
             elif command == "1":
                 self.create_user()
             elif command == "2":
                 self.login()
-            elif command == "3":
-                print(self._register_service.get_users())
