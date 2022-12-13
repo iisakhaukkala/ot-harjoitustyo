@@ -21,3 +21,8 @@
 - Käyttäjä voi liittyä adminiksi
 - Admin voi tehdä samat asiat kuin tavallinen käyttäjä
 - Admin voi poistaa itseltään admin-oikeudet
+
+## Viikko 6
+- Määrittelydokumentin toiminnot toimivat, lukuun ottamatta voimassa olevien (ja olemattomien) jäsenyyksien tulostamista
+- Ongelman korjaantuminen vaatii membership-tietojen tallentamisen date-olioina merkkijonon sijaan
+- Testikattavuus nykyisillä toiminnoilla 97 %
