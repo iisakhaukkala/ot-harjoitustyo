@@ -10,4 +10,6 @@
 |2.12. |1   |tietokantatoimintojen testit|
 |5.12. |5   |sovellustason koodaus ja testit, käyttöliittymän koodaus|
 |6.12. |1   |käyttöliittymän koodaus|
-|yht.  |30  ||
+|12.12.|4   |käyttöliittymän ja loppujen toimintojen koodaus|
+|13.12.|5   |käyttöliittymän hiominen ja testien koodaus|
+|yht.  |39  ||
