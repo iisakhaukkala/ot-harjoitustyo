@@ -5,7 +5,7 @@ Sovellus on harjoitustyö, joka on tehty osana Helsingin yliopiston kurssia Ohje
 ## Releaset
 
 - [viikko5](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/viikko5)
-- {viikko6](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/viikko6)
+- [viikko6](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
 
