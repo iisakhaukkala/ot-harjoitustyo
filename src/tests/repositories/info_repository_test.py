@@ -7,6 +7,6 @@ class TestService(unittest.TestCase):
         pass
 
     def test_info(self):
-        textlist = ["a","b","c"]
+        textlist = ["a", "b", "c"]
         info_repository.edit_info(textlist)
-        self.assertEqual(info_repository.return_info(),"a\nb\nc\n")
+        self.assertEqual(info_repository.return_info(), "a\nb\nc\n")
