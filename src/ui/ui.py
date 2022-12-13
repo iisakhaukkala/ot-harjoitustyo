@@ -48,7 +48,7 @@ class UI:
             print("Jäsenyytesi ei ole voimassa")
         else:
             print(
-                f"Jäsenyytesi voimassa {self.__register_service._user[5]} asti")
+                f"Jäsenyytesi voimassa {self._register_service._user[5]} asti")
         print("Olet admin")
         print("")
         print("Komennot:")

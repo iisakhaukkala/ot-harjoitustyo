@@ -67,12 +67,18 @@ class TestRegister(unittest.TestCase):
         self.assertEqual(register_repository.find_by_username(
             "matti"), ('matti', 'meikalainen', None, None, None, None, 0))
 
-    def test_find_by_name(self):
+    def test_find_info_by_username(self):
+        register_repository.create_user(
+            "matti", "meikalainen", None, None, None, None, 0)
+        self.assertEqual(register_repository.find_info_by_username(
+            "matti"), ('matti', None, None, None, None))
+
+    def test_find_info_by_name(self):
         register_repository.create_user(
             "matti", "meikalainen", None, None, None, None, 0)
         register_repository.edit_name("Matti Meikalainen", "matti")
-        self.assertEqual(register_repository.find_by_name(
-            "Matti Meikalainen"), ('matti', 'meikalainen', "Matti Meikalainen", None, None, None, 0))
+        self.assertEqual(register_repository.find_info_by_name(
+            "Matti Meikalainen"), ('matti', "Matti Meikalainen", None, None, None))
 
     def test_get_all_members(self):
         register_repository.create_user(

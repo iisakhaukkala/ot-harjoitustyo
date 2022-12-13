@@ -58,9 +58,6 @@ class RegisterService:
     def logout(self):
         self._user = None
 
-    # def get_user_info(self):
-    #    return (self._user[0], self._user[2], self._user[3], self._user[4], self._user[5])
-
     def get_users(self):
         return self._register_repository.get_all()
 
