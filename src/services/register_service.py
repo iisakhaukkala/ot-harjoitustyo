@@ -1,3 +1,4 @@
+from datetime import datetime
 from repositories.register_repository import register_repository
 
 
@@ -25,12 +26,16 @@ class DeletingYourselfError(Exception):
     pass
 
 
+class InvalidDateError(Exception):
+    pass
+
+
 class RegisterService:
     def __init__(self, register_repo):
         self._register_repository = register_repo
         self._user = None
 
-    def create_user(self, username, password):
+    def create_user(self, username, password, name):
         if len(username) < 3:
             raise TooShortUsernameError
 
@@ -43,7 +48,7 @@ class RegisterService:
             raise UsernameExistsError
 
         self._register_repository.create_user(
-            username, password, None, None, None, None, 0)
+            username, password, name, None, None, None, 0)
 
     def login(self, username, password):
         user = self._register_repository.find_by_username(username)
@@ -83,6 +88,11 @@ class RegisterService:
         if not user:
             raise UserNotFoundError
 
+        try:
+            datetime.strptime(membership, '%Y-%m-%d')
+        except ValueError as _e:
+            raise InvalidDateError from _e
+
         self._register_repository.edit_membership(membership, username)
         self.update_user()
 
@@ -102,10 +112,21 @@ class RegisterService:
 
         return user
 
+    def update_members(self):
+        users = self.get_users()
+        now = datetime.now()
+        for user in users:
+            if user[5] is not None:
+                membership = datetime.strptime(user[5], '%Y-%m-%d')
+                if membership < now:
+                    self._register_repository.edit_membership(None, user[0])
+
     def get_all_members(self):
+        self.update_members()
         return self._register_repository.get_all_members()
 
     def get_all_non_members(self):
+        self.update_members()
         return self._register_repository.get_all_non_members()
 
     def delete_user(self, username):
