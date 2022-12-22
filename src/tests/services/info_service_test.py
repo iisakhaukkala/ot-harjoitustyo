@@ -2,7 +2,7 @@ import unittest
 from services.info_service import info_service
 
 
-class TestService(unittest.TestCase):
+class TestInfoService(unittest.TestCase):
     def setUp(self):
         pass
 

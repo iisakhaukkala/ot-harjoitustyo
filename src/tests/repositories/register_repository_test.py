@@ -2,7 +2,7 @@ import unittest
 from repositories.register_repository import register_repository
 
 
-class TestRegister(unittest.TestCase):
+class TestRegisterRepository(unittest.TestCase):
     def setUp(self):
         register_repository.delete_all()
 

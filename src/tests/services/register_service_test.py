@@ -3,7 +3,7 @@ from services.register_service import register_service
 from services.register_service import TooShortUsernameError, TooShortPasswordError, UsernameExistsError, InvalidCreditentialsError, UserNotFoundError, DeletingYourselfError, InvalidDateError
 
 
-class TestService(unittest.TestCase):
+class TestRegisterService(unittest.TestCase):
     def setUp(self):
         register_service.delete_all()
 

@@ -2,7 +2,7 @@ import unittest
 from repositories.info_repository import info_repository
 
 
-class TestService(unittest.TestCase):
+class TestInfoRepository(unittest.TestCase):
     def setUp(self):
         pass
 
