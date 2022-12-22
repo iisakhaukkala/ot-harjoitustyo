@@ -13,34 +13,35 @@ Sovelluksessa on kahdenlaisia käyttäjiä: jäseniä ja järjestötoimijoita (a
 ### Jäsenet
 
 #### Ennen kirjautumista jäsen:
-- voi luoda käyttäjätunnuksen (tehty)
-  - käyttäjätunnuksen tulee olla uniikki ja vähintään 3 merkkiä pitkä (tehty)
-  - salasanan täytyy olla vähintään 8 merkkiä (tehty)
-- voi kirjautua antamalla käyttäjätunnuksen ja salasanan (tehty)
-  - sovellus ilmoittaa, mikäli ne menivät väärin (tehty)
+- voi luoda käyttäjätunnuksen
+  - käyttäjätunnuksen tulee olla uniikki ja vähintään 3 merkkiä pitkä 
+  - salasanan täytyy olla vähintään 8 merkkiä 
+  - lisäksi kirjautumisen yhteydessä tulee antaa nimi
+- voi kirjautua antamalla käyttäjätunnuksen ja salasanan
+  - sovellus ilmoittaa, mikäli ne menivät väärin
 
 #### Kirjautumisen jälkeen jäsen:
-- voi muokata omia tietojaan (tehty)
-  - nimi, sähköpostiosoite, puhelinnumero (tehty)
-- näkee, mihin saakka hänen jäsenyytensä on voimassa (tehty)
-- näkee, miten jäsenyyden voi uusia (tehty)
-- näkee jäsenyysyhteyshenkilön yhteystiedot (tehty)
-- voi liittyä järjestötoimijaksi (adminiksi) (tehty)
+- voi tarkastella ja muokata omia tietojaan 
+  - nimi, sähköpostiosoite, puhelinnumero, jäsenyyden voimassaolo
+- voi tarkastella jäsenyyden uusimisohjeita
+- voi liittyä järjestötoimijaksi (adminiksi)
 
 ### Järjestötoimijat (adminit)
 
 #### Ennen kirjautumista järjestötoimija:
-- voi kirjautua antamalla käyttäjätunnuksen ja salasanan (tehty)
-  - sovellus ilmoittaa, mikäli ne menevät väärin (tehty)
+- voi kirjautua antamalla käyttäjätunnuksen ja salasanan 
+  - sovellus ilmoittaa, mikäli ne menevät väärin
 
 #### Kirjautumisen jälkeen järjestötoimija:
-- voi muokata omia tietojaan (tehty)
-  - nimi, sähköpostiosoite, puhelinnumero (tehty)
+- voi tarkastella ja muokata omia tietojaan 
+  - nimi, sähköpostiosoite, puhelinnumero, jäsenyyden voimassaolo
 - voi tarkastella voimassa olevia ja voimassa olemattomia jäsenyyksiä
-- voi muokata jäsenten jäsenyystietoja (tehty)
-- voi hakea käyttäjiä nimellä tai käyttäjätunnuksella (tehty)
-- voi muokata jäsenille näkyviä uusimisohjeita sekä jäsenyysyhteyshenkilön yhteystietoja (tehty)
-- voi palautua takaisin tavalliseksi käyttäjäksi (tehty)
+- voi muokata jäsenten jäsenyystietoja 
+- voi hakea käyttäjiä nimellä tai käyttäjätunnuksella
+- voi tarkastella jäsenyyden uusimisohjeita
+- voi muokata jäsenyyden uusimisohjeita
+- voi poistaa käyttäjiä
+- voi palautua takaisin tavalliseksi käyttäjäksi
 
 ## Jatkokehitysideoita
 Sovellukseen voi lisätä seuraavia toiminnallisuuksia:
