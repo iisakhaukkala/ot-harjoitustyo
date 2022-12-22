@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Projektin lähdekoodi löytyy pakattuna tiedostona viimeisimmästä releasesta _Assets_ osion alta. Pura tiedosto ennen sen käyttämistä.
+Projektin lähdekoodi löytyy pakattuna tiedostona [viimeisimmästä releasesta](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/v1.0.0) _Assets_ osion alta. Pura tiedosto ennen sen käyttämistä.
 
 ## Konfigurointi
 
