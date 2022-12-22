@@ -12,4 +12,7 @@
 |6.12. |1   |käyttöliittymän koodaus|
 |12.12.|4   |käyttöliittymän ja loppujen toimintojen koodaus|
 |13.12.|5   |käyttöliittymän hiominen ja testien koodaus|
-|yht.  |39  ||
+|19.12.|1   |sovelluslogiikan parantelu|
+|21.12.|2   |sovelluslogiikan parantelu|
+|22.12.|4   |testien viimeistely, dokumentaatio|
+|yht.  |46  ||
