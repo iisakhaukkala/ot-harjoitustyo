@@ -4,7 +4,7 @@ Ohjelmaa on testattu sekä unittestillä että manuaalisesti.
 
 ## Yksikkö- ja integraatiotestaus
 
-Sovelluslogiikasta vastaavia luokkia 'RegisterService' ja 'InfoService' sekä repository-luokkia 'RegisterRepository' ja 'InfoRepository' luokkia testataan ainoastaan testien käytössä olevilla tiedostoilla, joiden nimet löytyvät _.env.test_-tiedostosta. 'TestRegisterService'-luokka vastaa 'RegisterService'-luokan testaamisesta, 'TestInfoService'-luokka vastaa 'InfoService'-luokan testaamisesta, 'TestRegisterRepository'-luokka vastaa 'RegisterRepository'-luokan testaamisesta ja 'TestInfoRepository'-luokka vastaa 'InfoRepository'-luokan testaamisesta.
+Sovelluslogiikasta vastaavia luokkia `RegisterService` ja `InfoService` sekä repository-luokkia `RegisterRepository` ja `InfoRepository` luokkia testataan ainoastaan testien käytössä olevilla tiedostoilla, joiden nimet löytyvät _.env.test_-tiedostosta. `TestRegisterService`-luokka vastaa `RegisterService`-luokan testaamisesta, `TestInfoService`-luokka vastaa `InfoService`-luokan testaamisesta, `TestRegisterRepository`-luokka vastaa `RegisterRepository`-luokan testaamisesta ja `TestInfoRepository`-luokka vastaa `InfoRepository`-luokan testaamisesta.
 
 ### Testauskattavuus
 
