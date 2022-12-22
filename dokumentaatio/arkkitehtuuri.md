@@ -20,11 +20,11 @@ Näissä näkymissä pystyy tehdä erilaisia komentoja, jotka vievät uuteen nä
 
 ## Sovelluslogiikka
 
-Luokka 'InfoService' vastaa jäsenyyden uusimisohjeiden muokkaamisesta ja näyttämisestä. Luokka 'RegisterService' vastaa muista määrittelydokumentin toiminnallisuuksista sovelluslogiikan tasolla. Luokat tarjoavat kaikille käyttöliittymän toiminnoille oman metodin.
+Luokka `InfoService` vastaa jäsenyyden uusimisohjeiden muokkaamisesta ja näyttämisestä. Luokka `RegisterService` vastaa muista määrittelydokumentin toiminnallisuuksista sovelluslogiikan tasolla. Luokat tarjoavat kaikille käyttöliittymän toiminnoille oman metodin.
 
 ## Tietojen pysyväistallennus
 
-Luokka 'InfoRepository' vastaa jäsenyyden uusimisohjeiden tallentamisesta tekstitiedostoon. Luokka `RegisterRepository` puolestaan hoitaa käyttäjien tietojen tallentamisesta tietokantaan. 
+Luokka `InfoRepository` vastaa jäsenyyden uusimisohjeiden tallentamisesta tekstitiedostoon. Luokka `RegisterRepository` puolestaan hoitaa käyttäjien tietojen tallentamisesta tietokantaan. 
 
 ### Tiedostot
 
