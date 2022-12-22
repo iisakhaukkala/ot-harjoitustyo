@@ -2,10 +2,9 @@
 
 Sovellus on harjoitustyö, joka on tehty osana Helsingin yliopiston kurssia Ohjelmistotekniikka. Sovelluksen tarkoituksena on helpottaa järjestön tai muun vastaavan toimijan jäsenrekisterin ylläpitoa.
 
-## Releaset
+## Release
 
-- [viikko5](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/viikko5)
-- [viikko6](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/viikko6)
+[Viimeisin release](https://github.com/iisakhaukkala/ot-harjoitustyo/releases/tag/22.12.2022)
 
 ## Dokumentaatio
 
