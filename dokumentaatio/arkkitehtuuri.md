@@ -2,4 +2,4 @@
 
 Ohjelman rakennetta kuvaava luokka/pakkauskaavio:
 
-![Pakkausrakenne](./kuvat/arkkitehtuurikuvaus.jpeg)
+![Pakkausrakenne](./kuvat/Luokkakaavio.jpg)
