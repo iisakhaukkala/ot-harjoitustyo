@@ -26,3 +26,7 @@
 - Määrittelydokumentin toiminnot toimivat, lukuun ottamatta voimassa olevien (ja olemattomien) jäsenyyksien tulostamista
 - Ongelman korjaantuminen vaatii membership-tietojen tallentamisen date-olioina merkkijonon sijaan
 - Testikattavuus nykyisillä toiminnoilla 97 %
+
+## Viikko 7
+- Kaikki määrittelydokumenti toiminnot toimivat
+- Testikattavuus 97 %
